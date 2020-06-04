@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
-<h1>All Posts<h1>
+<div class="m-12">
+<h1  class="font-bold text-4xl text-gray-600 mb-2"">All Posts<h1>
 
-<ul id="posts">
+
+
   <%= render "post_show" %>
-</ul>
 
 <%= link_to "Add Post",new_post_path%>
+
+</div>

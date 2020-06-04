@@ -1,9 +1,8 @@
-<ul id="posts">
+
     <% @post.each do |post| %>
-      <li>
-        <h2><%= post.title %></h2>
+    <div class="max-w-sm w-full lg:max-w-full lg:flex">
+        <h2 class="p-2 mx-8 text-2xl"><%= post.title %></h2>
         <%= post.body %>
         <p> <%=post.user.username %> </p>        
-      </li>
+      </div>
     <% end %>
-</ul>
