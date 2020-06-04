@@ -14,10 +14,10 @@ class PostsController < ApplicationController
     @post=current_user.posts.build(post_params)
     
     @post.save
-    redirect_to posts_path
+    redirect_to shower_path
   end
 
-  def show
-    @post = Post.find(params[:id])
+  def shower
+    @post = Post.where( user_id:current_user.id)
   end
 end
