@@ -1,0 +1,16 @@
+<h2>Create your new Post</h2>
+
+<%=form_for(@post,html:{multipart:true}) do |f|%>
+    <p>
+     <%=f.label :title%>
+     <%=f.text_field :title%>
+
+    </p>
+    <p>
+        <%=f.label :body%>
+        <%=f.text_area :body%>
+    </p>
+    <p>
+        <%=f.submit%>
+        </p>
+<%end%>

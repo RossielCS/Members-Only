@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  
+  include PostsHelper
   def index
     @post = Post.all
   end
@@ -9,6 +9,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    
+    @post=Post.new(post_params)
+    @post.save
+    redirect_to posts_path
   end  
 end
