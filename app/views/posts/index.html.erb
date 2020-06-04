@@ -1,15 +1,17 @@
 <h1>All Posts<h1>
 
-<ul id="posts">
-  <% @post.each do |post| %>
-    <li>
-      <h2><%= post.title %></h2>
-      <%= post.body %>
-    </li>
-
-
-  <% end %>
-</ul>
+<% if user_signed_in? %>
+  <%= render "post_show" %>
+<% else %>
+  <ul id="posts">
+    <% @post.each do |post| %>
+      <li>
+        <h2><%= post.title %></h2>
+        <%= post.body %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%=link_to "Add Post",new_post_path%>
 <%=link_to "Sign Out",destroy_user_session_path, method: :delete%>

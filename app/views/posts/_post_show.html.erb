@@ -1,0 +1,10 @@
+<ul id="posts">
+    <% @post.each do |post| %>
+      <li>
+        <h2><%= post.title %></h2>
+        <%= post.body %>
+        <p> User ID </p>
+        <%=  %>
+      </li>
+    <% end %>
+</ul>
