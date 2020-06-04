@@ -13,8 +13,10 @@ class PostsController < ApplicationController
 
     @post=current_user.posts.build(post_params)
     
-    @post.save
-    redirect_to shower_path
+    if @post.save
+      flash.notice = 'Post was successfully created.'
+      redirect_to shower_path
+    end
   end
 
   def shower

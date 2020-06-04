@@ -1,5 +1,8 @@
+<p id="notice"><%= notice %></p>
 <h1>All Posts<h1>
 
-<%=link_to "Add Post",new_post_path%>
-<%=link_to "Sign in",destroy_user_session_path, method: :delete%>
-<%=render('post_show')%>
+<ul id="posts">
+  <%= render "post_show" %>
+</ul>
+
+<%= link_to "Add Post",new_post_path%>
