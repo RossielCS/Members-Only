@@ -1,8 +1,8 @@
 
     <% @post.each do |post| %>
-    <div class="max-w-sm w-full lg:max-w-full lg:flex">
-        <h2 class="p-2 mx-8 text-2xl"><%= post.title %></h2>
-        <%= post.body %>
-        <p> <%=post.user.username %> </p>        
+    <div class="w-full border p-4  my-2 shadow-lg rounded">
+        <h2 class="pt-2  text-4xl my-2"><%= post.title %></h2>
+        <div class="pt-2 bg-grey-300 text-xl"><%= post.body %></div>
+        <p class="mx-4 text-xl font-bold"> <%=post.user.username %> </p>        
       </div>
     <% end %>
