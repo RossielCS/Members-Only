@@ -1,8 +1,17 @@
 
-    <% @post.each do |post| %>
+<% if user_signed_in? %>
+  <% @post.each do |post| %>
     <div class="w-full border p-4  my-2 shadow-lg rounded">
-        <h2 class="pt-2  text-4xl my-2"><%= post.title %></h2>
-        <div class="pt-2 bg-grey-300 text-xl"><%= post.body %></div>
-        <p class="mx-4 text-xl font-bold"> <%=post.user.username %> </p>        
-      </div>
-    <% end %>
+      <h2 class="pt-2  text-4xl my-2"><%= post.title %></h2>
+      <div class="pt-2 bg-grey-300 text-xl"><%= post.body %></div>
+      <p class="mx-4 text-xl font-bold"> <%=post.user.username %> </p>        
+    </div>
+  <% end %>
+<% else %>
+  <% @post.each do |post| %>
+    <div class="w-full border p-4  my-2 shadow-lg rounded">
+      <h2 class="pt-2  text-4xl my-2"><%= post.title %></h2>
+      <div class="pt-2 bg-grey-300 text-xl"><%= post.body %></div>      
+    </div>
+  <% end %>
+<% end %>

@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  include PostsHelper
   before_action :authenticate_user!, except: [:index]
   def index
     @post = Post.all
@@ -21,6 +20,12 @@ class PostsController < ApplicationController
 
   def shower
     @post = Post.where(user_id: current_user.id)
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :body, :user_id)
   end
 end
 # rubocop:enable  Style/GuardClause
