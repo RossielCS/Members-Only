@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   include PostsHelper
-  before_action :authenticate_user!, :except=>[:index]
+  before_action :authenticate_user!, except: [:index]
   def index
     @post = Post.all
   end
@@ -9,10 +9,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.build
   end
 
+  # rubocop:disable  Style/GuardClause
   def create
+    @post = current_user.posts.build(post_params)
 
-    @post=current_user.posts.build(post_params)
-    
     if @post.save
       flash.notice = 'Post was successfully created.'
       redirect_to shower_path
@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   end
 
   def shower
-    @post = Post.where( user_id:current_user.id)
+    @post = Post.where(user_id: current_user.id)
   end
 end
+# rubocop:enable  Style/GuardClause
